@@ -1,0 +1,1 @@
+<?php echo '<input type="button" id="test" class="btn test">';?>

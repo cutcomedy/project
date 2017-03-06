@@ -1,0 +1,230 @@
+h1 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 35px;
+    font-family: cursive;
+}
+.block {
+    margin: 2px;
+    text-align: center;
+    
+}
+.f_block {
+    background-color: coral;
+    border-left: 3px soild #e0f1d9;
+}
+.n_block {
+    background-color: #FFD78C;
+}
+.b_add {
+    border-left: 2px white;
+    font-size: 14px;
+    background-color: coral;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+}
+.all {
+    margin: 0px auto;
+    width: 60%;
+    height: auto;
+}
+.b_find {
+    background-color: #FFC48C;
+    width: 65px;
+    height: 35px;
+    border-radius: 6px;
+    float: right;
+}
+.ha{
+    
+}
+.b_del {
+    background-color:darkorange;
+}
+.b_c_del {
+    background-color:transparent ;
+}
+.condition_b {
+    border: 0px;
+    border-left-width: 2px;
+    border-left: solid white;
+    width: 24px;
+    height: 24px;
+    float: right;
+
+}
+.b_add_condition {
+    background-color: transparent;
+}
+.done{
+    display: none;
+}
+h1 {
+    color: orange;
+    margin: 0px;
+}
+td {
+    margin: 2px;
+    text-align: center;
+    /*background-color: #FFD78C;*/
+    /*font-weight:bolder;*/
+    font-size: 15px;
+}
+.highlight {
+    background: red;
+    animation: myfirst 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes myfirst {
+    0% {
+        background: #FFD78C;
+    }
+    10% {
+        background: beige;
+    }
+    20% {
+        background: #FFD78C;
+    }
+    30% {
+        background: beige;
+    }
+    40% {
+        background: #FFD78C;
+    }
+    50% {
+        background: beige;
+    }
+    60% {
+        background: #FFD78C;
+    }
+    70% {
+        background: beige;
+    }
+    80% {
+        background: #FFD78C;
+    }
+    90% {
+        background: beige;
+    }
+    100% {
+        background: #FFD78C;
+    }
+}
+body,
+ul.navigation,
+ul.navigation li,
+ul.navigation ul,
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-decoration: none;
+}
+ul.navigation,
+ul.navigation li {
+    list-style: none;
+}
+ul.navigation li {
+    position: relative;
+    float: left;
+}
+
+/* 選單 li 裡面連結之樣式 */
+
+ul.navigation li a {
+    display: block;
+    padding: 12px 20px;
+    /*background: #888;*/
+    color: black;
+}
+
+/* 特定在第一層，以左邊灰線分隔 */
+
+ul.navigation > li > a {
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+}
+ul.navigation > li > a:hover {
+    color: #666;
+    background: #DDD
+}
+
+/* 特定在第一層 > 第二層之後下拉部分之樣式 */
+
+ul.navigation li ul {
+    display: none;
+    float: left;
+    position: absolute;
+    left: 0;
+    margin: 0;
+}
+
+/* 當第一層選單被觸發時，指定第二層顯示 */
+
+ul.navigation li:hover > ul {
+    display: block;
+}
+
+/* 特定在第二層或之後下拉部分 li 之樣式 */
+
+ul.navigation ul li {
+    border-bottom: 1px solid #DDD;
+}
+
+/* 特定在第二層或之後下拉部分 li （最後一項不要底線）之樣式 */
+
+ul.navigation ul li:last-child {
+    border-bottom: none;
+}
+
+/* 第二層或之後 選單 li 之樣式 */
+
+ul.navigation ul a {
+    width: 120px;
+    padding: 10px 12px;
+    color: #666;
+    background: #EEE;
+}
+ul.navigation ul a:hover {
+    background: #CCC;
+}
+
+/* 第三層之後，上一層的選單觸發則顯示出來（皆為橫向拓展） */
+
+ul.navigation ul li:hover > ul {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+/* 箭頭向下                   可是沒有顯示出來需修改*/
+
+.arrow-bottom {
+    display: inline-block;
+    margin-left: 5px;
+    border-top: 4px solid #FFF;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    width: 1px;
+    height: 1px;
+}
+
+/* 箭頭向右 */
+
+.arrow-right {
+    display: inline-block;
+    margin-left: 12px;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid #666;
+    width: 1px;
+    height: 1px;
+}
+.div_add {
+    padding: 0px;
+    width: 15%;
+    height: 80%;
+    margin: 0 auto;
+}

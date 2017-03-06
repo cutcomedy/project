@@ -1,0 +1,143 @@
+
+
+h1 {
+    color: orange;
+}
+ul{
+    list-style: none;
+}
+.products {
+    background-color: #FFE4C4;
+    text-align: center;
+}
+
+.point_t {
+    width: 10%;
+}
+
+.detail {
+    float: left;
+    background-color: #FFE4C4;
+    width: 98%;
+    height: 20%;
+}
+
+.name_price {
+    float: left;
+    width: 75%;
+    margin: 0;
+}
+
+.img {
+    width: 170px;
+    height: 170px;
+
+}
+
+td {
+    margin: 2px;
+    background-color: #FFD78C;
+    border-radius: 10px;
+    border: 3px #EFEAC0 solid;
+}
+
+
+.num_btn{
+    width: 40px;
+    height: 40px;
+    background-color: #EAC4AC;
+    box-shadow: 2px 2px 2px 2px #cccccc;
+    font-size: 16px;
+    padding: 2px;
+}
+.no_dl{
+     text-decoration:none;
+}
+.goodst {
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.point_block {
+    color: #f40000;
+    background: #fff;
+    border: 1px solid #f40000;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 73px;
+    height: 27px;
+    padding: 1px 5px 8px;
+    text-align: center;
+    font-family: tahoma;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background: #fff;
+}
+.goodst li {
+    position: relative;
+    float: left;
+    width: 154px;
+    height:330px;
+    margin: 0 6px 6px 6px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #a1a1a1;
+}
+.goodst .info {
+    padding: 0 8px;
+    color: #999;
+}
+.goodst .info .other{
+    
+}
+.goodst .info dt, .goodst .info .dsc, .goodst .info .name {    
+    width: 100%;
+    word-wrap: break-word; 
+    word-break: normal; 
+    
+}
+.goodst .info dt {
+    color: #2b2b2b;
+    font-size: 13px;
+}
+.goodst .info .dsc {
+    font-size: 13px;
+}
+.goodst .info .name {
+    width: 80%;
+    font-size: 13px;
+}
+.trace{
+    font-size: 12px;
+    border-style: groove;
+    border-color: cornflowerblue;
+    border-width: 1px;
+    margin-right:2px;
+    padding: 1px;
+}
+.share{
+}
+.chose_now{
+    margin:2px;
+    border-color: orangered;
+    border-style: groove;
+    border-width: 2px;
+    font-size: 14px;
+    padding: 2px;
+    display: block;
+    text-decoration:none;
+    color: black;
+}
+.chose_no{
+    text-decoration:none;
+    color: black;
+    margin:2px;
+    font-size: 14px;
+    border-color: dimgrey;
+    border-style: groove;
+    border-width: 2px;
+    padding: 2px;
+    display: block;
+    text-decoration:none;
+}
