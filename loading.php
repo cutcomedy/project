@@ -2,6 +2,9 @@
     if (!isset($_SESSION)){
         session_start();
     }
+    if(!isset($_SESSION["id"])){
+      header("Location: price.php");
+    }
 ?>
 <html lang="zh">
 
@@ -9,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <meta charset="utf-8">
     <title>LOADING</title>
-    <?php 
+    <?php
         function unit($val, $num){
             switch($val){
                 case "0":
@@ -22,7 +25,7 @@
                     break;
                 case "3":
                     $tmp = (float)$num + "克";
-                    break;   
+                    break;
                 case "4":
                     $tmp = (float)$num/1000 + "克";
                     break;
@@ -55,7 +58,7 @@
                 case "14":
                     $tmp = (float)$num*1024;
                     break;
-                
+
             }
             return $tmp;
         }
@@ -77,7 +80,7 @@
          $json = $json.'{"importance":'.$_POST["condition_imp_".$array[$i]].',';
          $j = 0;
          $count = 0;
-         while($j < $array[$i+2]){ 
+         while($j < $array[$i+2]){
              try{
                  $tmp = @$_POST["conform_in_".$array[$i]."-".$j];
                  $unit = @$_POST["unit_".$array[$i]."-".$j];
@@ -92,7 +95,7 @@
                  else if(@$_POST["unit_".$array[$i]."-".$j] != "0"){
                      $true_value = unit($unit, $tmp);
                  }
-                 
+
                  else{
                      $true_value = $tmp;
                  }
@@ -102,16 +105,16 @@
                  $j += 1;
              }
          }
-         
+
          if($array[$i+1] == "1")
              $json = $json.'"discrete":"True"}';
          else
              $json = $json.'"discrete":"False"}';
-         
+
      }
      $json = $json."}";
-     
-    
+
+
      echo "<input type='hidden' id='json' value='".$json."'>";
      echo "<input type='hidden' id='product_name' value='".$product_name."'>";
      echo "<input type='hidden' id='id' value='".$_SESSION['id']."'>";
@@ -135,7 +138,7 @@
                     data: {
                         json:$("#json").val()
                     },
-                    success: function(msg) { 
+                    success: function(msg) {
                         window.localStorage.product = msg;
                         window.localStorage.product_name = $("#product_name").val();
                         //$("#json").val(msg);
@@ -155,8 +158,8 @@
                         name:$("#product_name").val(),
                         id:$("#id").val()
                     },
-                    success: function(msg) { 
-                        window.localStorage.popularity = msg;
+                    success: function(msg) {
+                        window.localStorage.similarity = msg;
                         //$("#json").val(msg);
                     },
                     error: function() {

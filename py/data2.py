@@ -36,7 +36,8 @@ for name in fuzzy.get_attr_key_from_dict(conditions[u'商品名稱']):
             ids[str(x[3])]['pic'] = x[2]
             ids[str(x[3])]['shop'] = x[4]
             ids[str(x[3])]['score'] = 0.0
-            ids[str(x[3])]['popularity'] = x[8]
+            #popularity = share*0.5 + click*0.1 + track*0.4
+            ids[str(x[3])]['popularity'] = x[5]*0.5 + x[6]*0.1 + x[7]*0.4
 
     #counting score for product
     for current_id in products_id:
@@ -101,13 +102,13 @@ ids_sort_score = sorted(ids, key = lambda x : (ids[x]['score'], ids[x]['populari
 ids_sort_popularity = sorted(ids, key = lambda x : (ids[x]['popularity'], ids[x]['score']), reverse=True)
 j = 0
 for i in ids_sort_score:
-    ids_x["0"][str(j)] = ids[i]
-    ids_x["0"][str(j)]['id'] = i
+    ids_x["score"][str(j)] = ids[i]
+    ids_x["score"][str(j)]['id'] = i
     j+=1
 j = 0
 for i in ids_sort_popularity:
-    ids_x["1"][str(j)] = ids[i]
-    ids_x["1"][str(j)]['id'] = i
+    ids_x["hot"][str(j)] = ids[i]
+    ids_x["hot"][str(j)]['id'] = i
     j+=1
 
 print base64.b64encode(json.dumps(ids_x))

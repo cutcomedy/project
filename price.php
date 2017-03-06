@@ -36,9 +36,9 @@
                                         <div class="col-sm-6">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    重要程度                                          
+                                                    重要程度
                                                 </span>
-                            <select name="condition_imp_0" id="condition_imp_0" class="form-control input-sm">
+                            <select required name="condition_imp_0" id="condition_imp_0" class="form-control input-sm">
                                 <option selected=""></option>
                                 <option value="6">最重要 </option>
                                 <option value="5">非常重要 </option>
@@ -64,7 +64,7 @@
                                     <div class="col-sm-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">名稱</span>
-                                            <input class="form-control input-sm" type="text" size="20"  name="conform_in_0-0" id="conform_in_0-0">
+                                            <input required class="form-control input-sm" type="text" size="20"  name="conform_in_0-0" id="conform_in_0-0">
                                             <select name="unit_0-0" style="display: none;" id="unit_0-0">
                                                 <option selected value="0"></option>
                                             </select>
@@ -73,7 +73,7 @@
                                     <div class="col-sm-5">
                                         <div class="input-group">
                                             <span class="input-group-addon">符合程度</span>
-                                            <select class="form-control input-sm" name="conform_imp_0-0" id="conform_imp_0-0">
+                                            <select required class="form-control input-sm" name="conform_imp_0-0" id="conform_imp_0-0">
                                                 <option></option>
                                                 <option value="6">完全符合 </option>
                                                 <option value="5">非常符合 </option>
@@ -94,78 +94,6 @@
             </div>
             </div>
             <br>
-
-            <!--            <table class="table well" id="no_0">
-                <thead>
-                    <tr>
-                        <th>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <span style="font-size: 20px;">商品名稱
-                                            <input type="hidden" name="condition_input_0" value="商品名稱">
-                                        </span>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">重要程度</span>
-                                        <select name="condition_imp_0" id="condition_imp_0" class="form-control">
-                                            <option selected=""></option>
-                                            <option value="6">最重要 </option>
-                                            <option value="5">非常重要 </option>
-                                            <option value="4">比較重要 </option>
-                                            <option value="3">普通 </option>
-                                            <option value="2">比較不重要 </option>
-                                            <option value="1">非常不重要 </option>
-                                            <option value="0">完全不重要 </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1">
-                                    <button type="button" class="btn btn-success b_add_condition" id="add_0-0">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="conform_in_tr_0-0">
-                        <td>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">名稱</span>
-                                        <input class="form-control" type="text" size="20" placeholder="請輸入商品名稱" name="conform_in_0-0" id="conform_in_0-0">
-                                        <select name="unit_0-0" style="display: none;" id="unit_0-0">
-                                            <option selected value="0"></option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-5">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">符合程度</span>
-                                        <select class="form-control" name="conform_imp_0-0" id="conform_imp_0-0">
-                                            <option></option>
-                                            <option value="6">完全符合 </option>
-                                            <option value="5">非常符合 </option>
-                                            <option value="4">比較符合 </option>
-                                            <option value="3">普通 </option>
-                                            <option value="2">比較不符合 </option>
-                                            <option value="1">非常不符合 </option>
-                                            <option value="0">完全不符合 </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <!--<td style="background-color :coral;"></td>-->
-
             <div class="panel panel-info">
                 <table class="table" style="background:#ff9933;">
                     <thead>
@@ -232,7 +160,15 @@
             </div>
             <span id="upup"></span>
             <div style="margin:0px auto; width:55px;">
-                <input type="submit" id="submit" value="搜尋" class="btn btn-info">
+              <?php
+                  if(!isset($_SESSION["id"])){
+                    echo'<button type="button" style="margin:4px;" class="btn btn-info" data-toggle="modal" data-target="#login_Modal">搜尋</button>';
+                  }
+                  else {
+                    echo'<input type="submit" id="submit" value="搜尋" class="btn btn-info">';
+                  }
+              ?>
+
             </div>
 
             <input type="hidden" name="array" id="array" value="">

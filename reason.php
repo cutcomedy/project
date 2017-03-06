@@ -3,7 +3,7 @@
     if (!isset($_SESSION))
         session_start();
     if($_GET["mode"] == "track" && $_SESSION["id"] == "")
-        header("Location: price.php"); 
+        header("Location: price.php");
 ?>
     <html>
 
@@ -48,9 +48,9 @@
                     echo '<a style="float:right;" class="chose_now">符合程度</a>';
                     echo '<a style="float:right;" class="chose_no" href="reason.php?page=1&type=1&sort='.$_GET['sort'].'&mode='.$_GET['mode'].'">相似度</a>';
                 }
-                
+
                         }
-               
+
             ?>
 
                     </div>
@@ -68,22 +68,43 @@
                 <div style="margin:0 auto;width:500px;">
                     <ul class="pagination">
                         <script>
-                            if ($("#type").val() == "0")
-                                var data_string = window.localStorage.product;
-                            else
-                                var data_string = window.localStorage.popularity;
-                            var data = JSON.parse(data_string);
-                            var data_object = data["0"];
-                            var page_end = Object.keys(data_object).length/10 + 1;
+                        $(document).ready(function() {
+                            var page_end = 0;
+                            if($("#mode").val() == "search"){
+                                if ($("#type").val() == "0")
+                                    var data_string = window.localStorage.product;
+                                else
+                                    var data_string = window.localStorage.similarity;
+                                var data = JSON.parse(data_string);
+                                var data_object = data["score"];
+                                page_end = Object.keys(data_object).length/10 + 1;
+
+                            }
+                            else{
+
+                                $.ajax({
+                                    url:"get_track_num.php",
+                                    type: 'POST',
+                                    dataType: "text",
+                                    async: false,
+                                    success: function(msg){
+                                        page_end = Math.floor(parseInt(msg)/10) + 1;
+                                        console.log(page_end);
+                                  }
+                                })
+                            }
+                            console.log(page_end);
                             var page = parseInt($("#page").val());
                             var sort = $("#sort").val();
                             var type = $("#type").val();
                             var mode = $("#mode").val();
                             var prev = page - 1;
                             var next = page + 1;
-                            $(".pagination").append("<li><a href='reason.php?page=" + prev + "&type=" + type + "&sort=" + sort + "&mode=" + mode + "'><span class='glyphicon glyphicon-chevron-left'></span></a></li>");
+                            var acitve = "";
+                            if(page != 1)
+                                $(".pagination").append("<li><a href='reason.php?page=" + prev + "&type=" + type + "&sort=" + sort + "&mode=" + mode + "'><span class='glyphicon glyphicon-chevron-left'></span></a></li>");
                             var i, j;
-                            for (i = (page - 5), j = 0; j < 10 && (i) < page_end; i++) {
+                            for (i = (page - 5), j = 0; j < 10 && (i) <= page_end; i++) {
                                 if (i < 1)
                                     continue;
                                 if (i == page)
@@ -92,8 +113,10 @@
                                     $(".pagination").append("<li><a href='reason.php?page=" + i + "&type=" + type + "&sort=" + sort + "&mode=" + mode + "'>" + i + "</a></li>");
                                 j++;
                             }
-                            $(".pagination").append("<li><a href='reason.php?page=" + next + "&type=" + type + "&sort=" + sort + "&mode=" + mode + "'><span class='glyphicon glyphicon-chevron-right'></span></a></li>");
-
+                            active = "";
+                            if(page != page_end)
+                                $(".pagination").append("<li><a href='reason.php?page=" + next + "&type=" + type + "&sort=" + sort + "&mode=" + mode + "'><span class='glyphicon glyphicon-chevron-right'></span></a></li>");
+                        })
                         </script>
                     </ul>
                 </div>

@@ -6,14 +6,13 @@ $(document).ready(function(){
             type: 'POST',
             dataType: "text",
             data: {
-                product_url: $(this).val(),
+              product_url: $(this).val(),
+              product_id: $(this).attr('id'),
             },
-            
             success: function(msg) {
-                
                 alert(msg);
             },
-            
+
             error: function() {
                 alert("error");
             }
@@ -27,12 +26,12 @@ $(document).ready(function(){
             data: {
                 product_url: $(this).val(),
             },
-            
+
             success: function(msg) {
                 alert(msg);
                 window.location.reload();
             },
-            
+
             error: function() {
                 alert("error");
             }
