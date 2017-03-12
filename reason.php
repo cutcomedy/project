@@ -12,8 +12,15 @@
             <script type="text/javascript" src="js/reason.js"></script>
             <script type="text/javascript" src="js/track.js"></script>
             <link rel="stylesheet" type="text/css" href="css/reason.css">
+            <?php
+                if($_GET["mode"] == "track"){
+                    echo "<title>追蹤清單</title>";
+                }
+                else{
+                    echo "<title>搜尋結果</title>";
+                }
+             ?>
 
-            <title>搜尋結果</title>
     </head>
 
     <body>
@@ -21,7 +28,14 @@
             <div class="container">
                 <div id="title" style="margin: 0 auto; width:986px; padding:5px">
                     <div class="row">
-                        <h1 style="text-align:center;">搜尋結果</h1>
+                        <?php
+                            if($_GET["mode"] == "track"){
+                                echo "<h1 style='text-align:center;'>追蹤清單</h1>";
+                            }
+                            else{
+                                echo "<h1 style='text-align:center;'>搜尋結果</h1>";
+                            }
+                         ?>
                     </div>
                     <div class="row">
                         <?php
@@ -35,9 +49,9 @@
                 }
                 else{
                     if($_GET['type'] == 0)
-                        echo '<a style="float:left;" class="chose_no" href="reason.php?page=1&type='.$_GET['type'].'&sort=0&mode='.$_GET['mode'].'">&nbsp;&nbsp;&nbsp;依相似度排序&nbsp;&nbsp;&nbsp;&nbsp;</a>';
+                        echo '<a style="float:left;" class="chose_no" href="reason.php?page=1&type='.$_GET['type'].'&sort=0&mode='.$_GET['mode'].'">&nbsp;依符合程度排序&nbsp;&nbsp;&nbsp;</a>';
                     else
-                        echo '<a style="float:left;" class="chose_no" href="reason.php?page=1&type='.$_GET['type'].'&sort=0&mode='.$_GET['mode'].'">&nbsp;依符合程度排序&nbsp;</a>';
+                        echo '<a style="float:left;" class="chose_no" href="reason.php?page=1&type='.$_GET['type'].'&sort=0&mode='.$_GET['mode'].'">&nbsp;&nbsp;&nbsp;依相似度排序&nbsp;&nbsp;&nbsp;&nbsp;</a>';
                     echo '<a style="float:left;" class="chose_now" id="sort_hot">&nbsp;依熱門評分排序&nbsp;&nbsp;&nbsp;</a>';
                 }
                 if($_GET['type'] == 1){
@@ -122,9 +136,6 @@
                 </div>
 
             </div>
-            <?php include("login.php")?>
-                <?php include("sign_up.php")?>
-                    <?php include("state.php")?>
     </body>
 
     </html>

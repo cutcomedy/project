@@ -2,7 +2,7 @@
 $(document).ready(function(){
     $('body').on('click', '.track', function () {
         $.ajax({
-            url: "track_add.php",
+            url: "SQL_track_add.php",
             type: 'POST',
             dataType: "text",
             data: {
@@ -20,7 +20,7 @@ $(document).ready(function(){
     })
     $('body').on('click', '.notrack', function () {
         $.ajax({
-            url: "track_delete.php",
+            url: "SQL_track_delete.php",
             type: 'POST',
             dataType: "text",
             data: {
@@ -39,7 +39,7 @@ $(document).ready(function(){
     })
     $('body').on('click', '.share', function () {
         $.ajax({
-            url: "share.php",
+            url: "SQL_share.php",
             type: "POST",
             datatype: "text",
             data: {
@@ -55,7 +55,7 @@ $(document).ready(function(){
     })
         $('body').on('click', '.shop', function () {
         $.ajax({
-            url: "click_shop.php",
+            url: "SQL_click_shop.php",
             type: "POST",
             datatype: "text",
             data: {

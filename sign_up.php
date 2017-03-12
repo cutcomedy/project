@@ -23,7 +23,7 @@
                 <span id="warning_email" style="color:red"></span>
                 <br>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-success" id="submit_sign_up" value="註冊">
+                    <input type="button" class="btn btn-success" id="submit_sign_up" disabled="disabled" value="註冊">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>

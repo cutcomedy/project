@@ -15,3 +15,5 @@
 <script type="text/javascript" src="js/signup.js"></script>
 <script type="text/javascript" src="js/sign_out.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/change_pwd.js"></script>
+<script type="text/javascript" src="js/change_email.js"></script>

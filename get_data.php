@@ -39,7 +39,7 @@
                 var html_btn_url = '<div class="col-sm-2"><button type="button" style="margin:4px;" id="' + data_object[print_index]["id"] + '" class="btn btn-info shop" onclick="javascript:location.href=\'' + data_object[print_index]["url"] + '\'">' + data_object[print_index]["shop"] + '<span class="glyphicon glyphicon-chevron-right"></span></button>';
                 var login = 0;
                 $.ajax({
-                    url: 'iflogin.php',
+                    url: 'SQL_iflogin.php',
                     type: 'POST',
                     dataType: "text",
                     async: false,

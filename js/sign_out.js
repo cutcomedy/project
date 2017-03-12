@@ -3,7 +3,7 @@ $(document).ready(function(){
         $.ajax({
             url: 'sign_out.php',
             success:function(msg){
-                if(msg == "success" ){ 
+                if(msg == "success" ){
                     alert("sign out success!");
                     window.location.reload();
                 }
@@ -11,9 +11,9 @@ $(document).ready(function(){
                     alert("sign out fail!");
                 }
             },
-            error:function(xhr, ajaxOptions, thrownError){ 
-                alert(xhr.status); 
-                alert(thrownError); 
+            error:function(xhr, ajaxOptions, thrownError){
+                alert(xhr.status);
+                alert(thrownError);
             }
         })
     })

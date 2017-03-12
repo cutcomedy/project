@@ -7,11 +7,9 @@
     <html lang="zh">
 
     <head>
-        <?php include("include.php")?>
+        <?php include("include.php");?>
             <link rel="stylesheet" type="text/css" href="css/price.css">
             <script type="text/javascript" src="js/price.js"></script>
-
-
             <meta charset="utf-8">
             <title>商品查詢網站</title>
     </head>
@@ -168,16 +166,10 @@
                     echo'<input type="submit" id="submit" value="搜尋" class="btn btn-info">';
                   }
               ?>
-
             </div>
-
             <input type="hidden" name="array" id="array" value="">
-            </table>
-            </form>
-            </div>
-            <?php include("login.php")?>
-                <?php include("sign_up.php")?>
-                    <?php include("state.php")?>
+        </table>
+        </form>
+        </div>
     </body>
-
-    </html>
+</html>

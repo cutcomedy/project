@@ -130,45 +130,53 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $.ajax({
-                    url: "call_data_py.php",
-                    type: 'POST',
-                    dataType: "text",
-                    async: false,
-                    data: {
-                        json:$("#json").val()
-                    },
-                    success: function(msg) {
-                        window.localStorage.product = msg;
-                        window.localStorage.product_name = $("#product_name").val();
-                        //$("#json").val(msg);
-                    },
-                    error: function() {
-                        alert("error");
-                    }
-                });
+                function call_data(){
+                    return $.ajax({
+                        url: "call_data_py.php",
+                        type: 'POST',
+                        dataType: "text",
+                        async: false,
+                        data: {
+                            json:$("#json").val()
+                        },
+                        success: function(msg) {
+                            window.localStorage.product = msg;
+                            window.localStorage.product_name = $("#product_name").val();
+                            //$("#json").val(msg);
+                        },
+                        error: function() {
+                            alert("error");
+                        }
+                    });
+                }
+                function call_similarity(){
+                    return $.ajax({
+                        url: "call_similarity_py.php",
+                        type: 'POST',
+                        dataType: "text",
+                        async: false,
+                        data: {
+                            name:$("#product_name").val(),
+                            id:$("#id").val()
+                        },
+                        success: function(msg) {
+                            window.localStorage.similarity = msg;
+                            //$("#json").val(msg);
+                        },
+                        error: function() {
+                            alert("error");
+                        }
+                    });
+                }
+                function goto_reason(){
+                    window.location.href="reason.php?sort=0&type=0&page=1&mode=search";
+                }
+                $.when(call_data(), call_similarity()).done(goto_reason());
             })
-            if($("#id").val() != ""){
-                $.ajax({
-                    url: "call_similarity_py.php",
-                    type: 'POST',
-                    dataType: "text",
-                    async: false,
-                    data: {
-                        name:$("#product_name").val(),
-                        id:$("#id").val()
-                    },
-                    success: function(msg) {
-                        window.localStorage.similarity = msg;
-                        //$("#json").val(msg);
-                    },
-                    error: function() {
-                        alert("error");
-                    }
-                });
-            }
+
+
             //localStorage.clear();
             //window.localStorage.product = $("#result").val();
-            window.location.href="reason.php?sort=0&type=0&page=1&mode=search";
+
         </script>
 </body>

@@ -1,4 +1,5 @@
         $(document).ready(function () {
+            localStorage.clear();
             var count = 1;
             var count_6 = 0;
             var count_7 = 0;

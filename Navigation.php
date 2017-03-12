@@ -19,9 +19,19 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <?php
-                        if(@$_SESSION['account'] != ""){                       
+                        if(@$_SESSION['account'] != ""){
                             echo'<li><a>'.$_SESSION["account"].'</a></li>';
                             echo'<li><a href="reason.php?sort=0&type=0&page=1&mode=track">追蹤清單</a></li>';
+                            echo'<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">修改資料
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                    <li><a data-toggle="modal" data-target="#change_pwd_Modal">修改密碼</a></li>
+                                    <li><a data-toggle="modal" data-target="#change_email_Modal">修改Email</a></li>
+                                    </ul>
+                                </li>';
+                            echo'';
+                            echo'';
                             echo'<li><a id="signout">登出</a></li>';
                         }
                         else{
@@ -29,10 +39,16 @@
                             echo'<li><a data-toggle="modal" data-target="#login_Modal">登入</a></li>';
                             echo'<li><a data-toggle="modal" data-target="#login_Modal">追蹤清單</a></li>';
                         }
+
                     ?>
-                    <li><a data-toggle="modal" data-target="#state_Modal">目前進度</a></li>
                 </ul>
             </div>
-            
+
         </div>
     </nav>
+    <?php
+    include("login.php");
+    include("sign_up.php");
+    include("change_pwd.php");
+    include("change_email.php");
+    ?>
